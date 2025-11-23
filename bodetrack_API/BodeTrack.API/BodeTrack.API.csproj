@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BodeTrack.BusinnesLogic\BodeTrack.BusinnesLogic.csproj" />
+    <ProjectReference Include="..\BodeTrack.DataAccess\BodeTrack.DataAccess.csproj" />
+    <ProjectReference Include="..\BodeTrack.Entities\BodeTrack.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BodeTrack.DataAccess\BodeTrack.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

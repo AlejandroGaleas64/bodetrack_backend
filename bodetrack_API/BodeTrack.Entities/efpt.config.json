@@ -1,0 +1,102 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "database_bodetrackContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1186",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Entities",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "BodeTrack.Entities",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 2,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[Acce].[tbUsuarios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbArticulos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbCargos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbDepartamentos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbEstadosCiviles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbMunicipios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbSucursales]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Gral].[tbVehiculos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inve].[tbEntradas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inve].[tbEntradasDetalle]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inve].[tbLotes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inve].[tbSalidas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inve].[tbSalidasDetalle]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}
