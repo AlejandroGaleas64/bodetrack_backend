@@ -1,10 +1,5 @@
 ﻿using BodeTrack.DataAccess.General;
 using BodeTrack.Entities.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BodeTrack.BusinnesLogic.Services
 {
@@ -18,6 +13,7 @@ namespace BodeTrack.BusinnesLogic.Services
         }
 
         #region Departamentos
+
         public IEnumerable<tbDepartamentos> ListarDepartamentos()
         {
             try
@@ -27,16 +23,11 @@ namespace BodeTrack.BusinnesLogic.Services
             }
             catch (Exception ex)
             {
-
                 IEnumerable<tbDepartamentos> result = null;
                 return result;
             }
         }
+
         #endregion Departamentos
     }
-
-
-
-
-
 }

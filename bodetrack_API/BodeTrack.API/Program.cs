@@ -1,7 +1,6 @@
 using BodeTrack.API.Extensions;
 using BodeTrack.API.Helpers;
 using BodeTrack.BusinnesLogic;
-using BodeTrack.DataAccess;
 using BodeTrack.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -72,8 +71,8 @@ builder.Services.AddSingleton<IApiKeyValidator, ApiKeyValidator>();
 var app = builder.Build();
 app.UseCors("Allow");
 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

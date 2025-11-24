@@ -1,5 +1,5 @@
-﻿using Dapper;
-using BodeTrack.Entities.Entities;
+﻿using BodeTrack.Entities.Entities;
+using Dapper;
 using Microsoft.Data.SqlClient;
 
 namespace BodeTrack.DataAccess.General

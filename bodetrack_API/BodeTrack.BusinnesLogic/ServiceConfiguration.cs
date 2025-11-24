@@ -1,13 +1,7 @@
 ﻿using BodeTrack.BusinnesLogic.Services;
 using BodeTrack.DataAccess;
 using BodeTrack.DataAccess.General;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BodeTrack.BusinnesLogic
 {
@@ -19,7 +13,6 @@ namespace BodeTrack.BusinnesLogic
             BodeTrack_Context.BuildConnectionString(connectionString);
 
             services.AddScoped<DepartamentoRepository>();
-
         }
 
         public static void BusinessLogic(this IServiceCollection services)

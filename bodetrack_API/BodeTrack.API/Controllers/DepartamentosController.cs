@@ -25,7 +25,5 @@ namespace BodeTrack.API.Controllers
             var result = _generalServices.ListarDepartamentos();
             return Ok(result);
         }
-
-
     }
 }
