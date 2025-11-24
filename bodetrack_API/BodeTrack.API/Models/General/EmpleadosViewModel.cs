@@ -1,0 +1,39 @@
+﻿namespace BodeTrack.API.Models.General
+{
+    public class EmpleadosViewModel
+    {
+        public int Empl_Id { get; set; }
+
+        public string Empl_Codigo { get; set; }
+
+        public string Empl_Nombres { get; set; }
+
+        public string Empl_Apellidos { get; set; }
+
+        public string Empl_Sexo { get; set; }
+
+        public DateOnly Empl_FechaNacimiento { get; set; }
+
+        public string Empl_DNI { get; set; }
+
+        public string Empl_Direccion { get; set; }
+
+        public string Muni_Codigo { get; set; }
+
+        public int EsCi_Id { get; set; }
+
+        public int Carg_Id { get; set; }
+
+        public bool Empl_EsJefeBodega { get; set; }
+
+        public bool Empl_Estado { get; set; }
+
+        public int Empl_Creacion { get; set; }
+
+        public DateTime Empl_FechaCreacion { get; set; }
+
+        public int? Empl_Modificacion { get; set; }
+
+        public DateTime? Empl_FechaModificacion { get; set; }
+    }
+}
