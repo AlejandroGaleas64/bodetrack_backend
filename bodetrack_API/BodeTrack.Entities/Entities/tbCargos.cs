@@ -21,9 +21,4 @@ public partial class tbCargos
 
     public DateTime? Carg_FechaModificacion { get; set; }
 
-    public virtual tbUsuarios Carg_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Carg_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEmpleados> tbEmpleados { get; set; } = new List<tbEmpleados>();
 }

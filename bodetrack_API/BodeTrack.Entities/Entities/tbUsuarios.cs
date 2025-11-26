@@ -2,84 +2,54 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
 public partial class tbUsuarios
 {
+    // === Campos propios de tbUsuarios (mapeados a la tabla) ===
     public int Usua_Id { get; set; }
-
-    public string Usua_NombreUsuario { get; set; }
-
-    public string Usua_Clave { get; set; }
-
+    public string Usua_NombreUsuario { get; set; } = null!;
+    public string Usua_Clave { get; set; } = null!;
     public bool Usua_EsAdmin { get; set; }
-
     public int Empl_Id { get; set; }
-
     public bool Usua_Estado { get; set; }
-
     public int Usua_Creacion { get; set; }
-
     public DateTime Usua_FechaCreacion { get; set; }
-
     public int? Usua_Modificacion { get; set; }
-
     public DateTime? Usua_FechaModificacion { get; set; }
 
-    public virtual ICollection<tbArticulos> tbArticulosArti_CreacionNavigation { get; set; } = new List<tbArticulos>();
+    [NotMapped]
+    public bool Empl_EsJefeBodega { get; set; }
 
-    public virtual ICollection<tbArticulos> tbArticulosArti_ModificacionNavigation { get; set; } = new List<tbArticulos>();
+    [NotMapped]
+    public string Empl_Nombres { get; set; } = null!;
 
-    public virtual ICollection<tbCargos> tbCargosCarg_CreacionNavigation { get; set; } = new List<tbCargos>();
+    [NotMapped]
+    public string Empl_Apellidos { get; set; } = null!;
 
-    public virtual ICollection<tbCargos> tbCargosCarg_ModificacionNavigation { get; set; } = new List<tbCargos>();
+    [NotMapped]
+    public string Empl_DNI { get; set; } = null!;
 
-    public virtual ICollection<tbDepartamentos> tbDepartamentosDept_CreacionNavigation { get; set; } = new List<tbDepartamentos>();
+    [NotMapped]
+    public string Empl_Sexo { get; set; } = null!;
 
-    public virtual ICollection<tbDepartamentos> tbDepartamentosDept_ModificacionNavigation { get; set; } = new List<tbDepartamentos>();
+    [NotMapped]
+    public string Empl_Cargo { get; set; } = null!;
 
-    public virtual ICollection<tbEmpleados> tbEmpleadosEmpl_CreacionNavigation { get; set; } = new List<tbEmpleados>();
+    [NotMapped]
+    public string Empl_EstadoCivil { get; set; } = null!;
 
-    public virtual ICollection<tbEmpleados> tbEmpleadosEmpl_ModificacionNavigation { get; set; } = new List<tbEmpleados>();
+    [NotMapped]
+    public string Empl_Municipio { get; set; } = null!;
 
-    public virtual ICollection<tbEntradasDetalle> tbEntradasDetalleEnde_CreacionNavigation { get; set; } = new List<tbEntradasDetalle>();
+    [NotMapped]
+    public string Empl_Departamento { get; set; } = null!;
 
-    public virtual ICollection<tbEntradasDetalle> tbEntradasDetalleEnde_ModificacionNavigation { get; set; } = new List<tbEntradasDetalle>();
+    [NotMapped]
+    public int Code_Status { get; set; }
 
-    public virtual ICollection<tbEntradas> tbEntradasEntr_CreacionNavigation { get; set; } = new List<tbEntradas>();
-
-    public virtual ICollection<tbEntradas> tbEntradasEntr_ModificacionNavigation { get; set; } = new List<tbEntradas>();
-
-    public virtual ICollection<tbEstadosCiviles> tbEstadosCivilesEsCi_CreacionNavigation { get; set; } = new List<tbEstadosCiviles>();
-
-    public virtual ICollection<tbEstadosCiviles> tbEstadosCivilesEsCi_ModificacionNavigation { get; set; } = new List<tbEstadosCiviles>();
-
-    public virtual ICollection<tbLotes> tbLotesLote_CreacionNavigation { get; set; } = new List<tbLotes>();
-
-    public virtual ICollection<tbLotes> tbLotesLote_ModificacionNavigation { get; set; } = new List<tbLotes>();
-
-    public virtual ICollection<tbMunicipios> tbMunicipiosMuni_CreacionNavigation { get; set; } = new List<tbMunicipios>();
-
-    public virtual ICollection<tbMunicipios> tbMunicipiosMuni_ModificacionNavigation { get; set; } = new List<tbMunicipios>();
-
-    public virtual ICollection<tbSalidasDetalle> tbSalidasDetalleSade_CreacionNavigation { get; set; } = new List<tbSalidasDetalle>();
-
-    public virtual ICollection<tbSalidasDetalle> tbSalidasDetalleSade_ModificacionNavigation { get; set; } = new List<tbSalidasDetalle>();
-
-    public virtual ICollection<tbSalidas> tbSalidasSali_CreacionNavigation { get; set; } = new List<tbSalidas>();
-
-    public virtual ICollection<tbSalidas> tbSalidasSali_ModificacionNavigation { get; set; } = new List<tbSalidas>();
-
-    public virtual ICollection<tbSalidas> tbSalidasSali_UsuarioEnviaNavigation { get; set; } = new List<tbSalidas>();
-
-    public virtual ICollection<tbSalidas> tbSalidasSali_UsuarioRecibeNavigation { get; set; } = new List<tbSalidas>();
-
-    public virtual ICollection<tbSucursales> tbSucursalesSucs_CreacionNavigation { get; set; } = new List<tbSucursales>();
-
-    public virtual ICollection<tbSucursales> tbSucursalesSucs_ModificacionNavigation { get; set; } = new List<tbSucursales>();
-
-    public virtual ICollection<tbVehiculos> tbVehiculosVehi_CreacionNavigation { get; set; } = new List<tbVehiculos>();
-
-    public virtual ICollection<tbVehiculos> tbVehiculosVehi_ModificacionNavigation { get; set; } = new List<tbVehiculos>();
+    [NotMapped]
+    public string? Message_Status { get; set; }
 }

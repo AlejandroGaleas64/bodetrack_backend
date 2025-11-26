@@ -23,11 +23,5 @@ public partial class tbSucursales
 
     public DateTime? Sucs_FechaModificacion { get; set; }
 
-    public virtual tbMunicipios Muni_CodigoNavigation { get; set; }
-
-    public virtual tbUsuarios Sucs_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Sucs_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbSalidas> tbSalidas { get; set; } = new List<tbSalidas>();
+    
 }

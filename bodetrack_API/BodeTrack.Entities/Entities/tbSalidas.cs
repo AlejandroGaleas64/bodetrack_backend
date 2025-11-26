@@ -39,19 +39,5 @@ public partial class tbSalidas
 
     public DateTime? Sali_FechaModificacion { get; set; }
 
-    public virtual tbUsuarios Sali_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Sali_ModificacionNavigation { get; set; }
-
-    public virtual tbEmpleados Sali_TransportistaNavigation { get; set; }
-
-    public virtual tbUsuarios Sali_UsuarioEnviaNavigation { get; set; }
-
-    public virtual tbUsuarios Sali_UsuarioRecibeNavigation { get; set; }
-
-    public virtual tbSucursales Sucs { get; set; }
-
-    public virtual tbVehiculos Vehi { get; set; }
-
-    public virtual ICollection<tbSalidasDetalle> tbSalidasDetalle { get; set; } = new List<tbSalidasDetalle>();
+    
 }

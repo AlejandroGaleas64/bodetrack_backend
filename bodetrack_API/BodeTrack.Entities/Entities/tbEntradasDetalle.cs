@@ -33,11 +33,4 @@ public partial class tbEntradasDetalle
 
     public DateTime? Ende_FechaModificacion { get; set; }
 
-    public virtual tbArticulos Arti { get; set; }
-
-    public virtual tbUsuarios Ende_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Ende_ModificacionNavigation { get; set; }
-
-    public virtual tbEntradas Entr { get; set; }
 }

@@ -41,15 +41,5 @@ public partial class tbEmpleados
 
     public DateTime? Empl_FechaModificacion { get; set; }
 
-    public virtual tbCargos Carg { get; set; }
-
-    public virtual tbUsuarios Empl_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Empl_ModificacionNavigation { get; set; }
-
-    public virtual tbEstadosCiviles EsCi { get; set; }
-
-    public virtual tbMunicipios Muni_CodigoNavigation { get; set; }
-
-    public virtual ICollection<tbSalidas> tbSalidas { get; set; } = new List<tbSalidas>();
+    
 }

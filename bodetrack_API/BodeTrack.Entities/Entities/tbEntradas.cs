@@ -24,10 +24,4 @@ public partial class tbEntradas
     public int? Entr_Modificacion { get; set; }
 
     public DateTime? Entr_FechaModificacion { get; set; }
-
-    public virtual tbUsuarios Entr_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Entr_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEntradasDetalle> tbEntradasDetalle { get; set; } = new List<tbEntradasDetalle>();
 }

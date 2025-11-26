@@ -29,9 +29,5 @@ public partial class tbVehiculos
 
     public DateTime? Vehi_FechaModificacion { get; set; }
 
-    public virtual tbUsuarios Vehi_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Vehi_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbSalidas> tbSalidas { get; set; } = new List<tbSalidas>();
+   
 }
