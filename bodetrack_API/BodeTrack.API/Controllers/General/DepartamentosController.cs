@@ -23,7 +23,7 @@ namespace BodeTrack.API.Controllers.General
         public IActionResult Listar()
         {
             var result = _generalServices.ListarDepartamentos();
-            
+
             // Mapear ServiceResult.Code a HTTP status codes
             return StatusCode(result.Code, result);
         }

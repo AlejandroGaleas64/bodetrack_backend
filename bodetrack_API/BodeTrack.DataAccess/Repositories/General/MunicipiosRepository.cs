@@ -1,8 +1,6 @@
 ﻿using BodeTrack.Entities.Entities;
 using Dapper;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 
 namespace BodeTrack.DataAccess.Repositories.General
 {

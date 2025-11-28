@@ -1,5 +1,4 @@
 ﻿using BodeTrack.DataAccess.Repositories.General;
-using BodeTrack.Entities.Entities;
 
 namespace BodeTrack.BusinnesLogic.Services
 {
@@ -67,7 +66,6 @@ namespace BodeTrack.BusinnesLogic.Services
                 );
             }
         }
-
 
         public ServiceResult ListarArticulosConDetalle()
         {

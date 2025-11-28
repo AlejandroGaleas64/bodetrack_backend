@@ -13,7 +13,7 @@ namespace BodeTrack.BusinnesLogic
         {
             // Initialize the connection string for repositories that use Dapper
             BodeTrack_Context.BuildConnectionString(connectionString);
-            
+
             // General Repositories
             services.AddScoped<ArticulosRepository>();
             services.AddScoped<CargosRepository>();
@@ -23,10 +23,10 @@ namespace BodeTrack.BusinnesLogic
             services.AddScoped<MunicipiosRepository>();
             services.AddScoped<SucursalesRepository>();
             services.AddScoped<VehiculosRepository>();
-            
+
             // Acceso Repositories
             services.AddScoped<UsuariosRepository>();
-            
+
             // Inventario Repositories
             services.AddScoped<EntradasRepository>();
             services.AddScoped<LotesRepository>();

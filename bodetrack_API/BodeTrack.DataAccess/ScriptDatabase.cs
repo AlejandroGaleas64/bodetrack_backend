@@ -7,7 +7,6 @@
         public const string Articulos_Listar = "[Gral].[SP_Articulos_Listar]";
         public const string Articulos_ListarDetalle = "[Gral].[SP_Articulos_ListarDetalle]";
 
-
         #endregion Articulos
 
         #region Cargos
