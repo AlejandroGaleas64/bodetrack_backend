@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -25,4 +26,7 @@ public partial class tbArticulos
 
     public DateTime? Arti_FechaModificacion { get; set; }
 
+    // Campo adicional del SP_Articulos_ListarDetalle
+    [NotMapped]
+    public string Lotes { get; set; } // JSON string - se deserializa en frontend
 }

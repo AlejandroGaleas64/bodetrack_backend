@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -39,5 +40,47 @@ public partial class tbSalidas
 
     public DateTime? Sali_FechaModificacion { get; set; }
 
-    
+    // Campos del SP_Salidas_Listar
+    [NotMapped]
+    public int Secuencia { get; set; }
+
+    [NotMapped]
+    public string SucursalDestino { get; set; }
+
+    [NotMapped]
+    public int UnidadesTotales { get; set; }
+
+    [NotMapped]
+    public string UsuarioEnvia { get; set; }
+
+    [NotMapped]
+    public string UsuarioRecibe { get; set; }
+
+    [NotMapped]
+    public string Usua_Creacion { get; set; }
+
+    [NotMapped]
+    public string Usua_Modificacion { get; set; }
+
+    // Campos adicionales del SP_Salida_ObtenerCompleta
+    [NotMapped]
+    public int Code_Status { get; set; }
+
+    [NotMapped]
+    public string Message_Status { get; set; }
+
+    [NotMapped]
+    public string Vehiculo { get; set; }
+
+    [NotMapped]
+    public string Transportista { get; set; }
+
+    [NotMapped]
+    public string DetalleSalida { get; set; } // JSON string - se deserializa en frontend
+
+    [NotMapped]
+    public string UsuaCreacionNombre { get; set; }
+
+    [NotMapped]
+    public string UsuaModificacionNombre { get; set; }
 }

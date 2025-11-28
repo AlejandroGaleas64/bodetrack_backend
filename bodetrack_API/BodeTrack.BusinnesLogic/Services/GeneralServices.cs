@@ -68,6 +68,38 @@ namespace BodeTrack.BusinnesLogic.Services
             }
         }
 
+
+        public ServiceResult ListarArticulosConDetalle()
+        {
+            var result = new ServiceResult();
+
+            try
+            {
+                var list = _articuloRepository.ListarConDetalle();
+
+                if (list == null || !list.Any())
+                {
+                    return result.NotFound("No se encontraron artículos.");
+                }
+
+                return result.Ok(list);
+            }
+            catch (Microsoft.Data.SqlClient.SqlException ex)
+            {
+                return result.Error(
+                    message: "Error al consultar la base de datos.",
+                    data: new { Error = ex.Message }
+                );
+            }
+            catch (Exception ex)
+            {
+                return result.Error(
+                    message: "Ocurrió un error inesperado al listar artículos.",
+                    data: new { Error = ex.Message }
+                );
+            }
+        }
+
         #endregion Articulos
 
         #region Cargos

@@ -1,9 +1,9 @@
 ﻿using BodeTrack.Entities.Entities;
+using Dapper;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace BodeTrack.DataAccess.Repositories.Inventario
 {
@@ -26,7 +26,8 @@ namespace BodeTrack.DataAccess.Repositories.Inventario
 
         public IEnumerable<tbLotes> List()
         {
-            throw new NotImplementedException();
+            using var db = new SqlConnection(BodeTrack_Context.ConnectionString);
+            return db.Query<tbLotes>(ScriptDatabase.Lotes_Listar, commandType: CommandType.StoredProcedure);
         }
 
         public RequestStatus Update(tbLotes item)

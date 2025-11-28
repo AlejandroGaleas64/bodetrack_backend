@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -24,4 +25,10 @@ public partial class tbEntradas
     public int? Entr_Modificacion { get; set; }
 
     public DateTime? Entr_FechaModificacion { get; set; }
+
+    [NotMapped]
+    public string Usua_Creacion { get; set; }
+
+    [NotMapped]
+    public string Usua_Modificacion { get; set; }
 }

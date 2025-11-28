@@ -33,5 +33,11 @@ namespace BodeTrack.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<tbArticulos> ListarConDetalle()
+        {
+            using var db = new SqlConnection(BodeTrack_Context.ConnectionString);
+            return db.Query<tbArticulos>(ScriptDatabase.Articulos_ListarDetalle, commandType: System.Data.CommandType.StoredProcedure);
+        }
     }
 }

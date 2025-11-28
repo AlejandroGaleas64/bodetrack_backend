@@ -25,5 +25,12 @@ namespace BodeTrack.API.Controllers.General
             var result = _generalServices.ListarArticulos();
             return StatusCode(result.Code, result);
         }
+
+        [HttpGet("ListarConDetalle")]
+        public IActionResult ListarConDetalle()
+        {
+            var result = _generalServices.ListarArticulosConDetalle();
+            return StatusCode(result.Code, result);
+        }
     }
 }

@@ -14,15 +14,14 @@ namespace BodeTrack.API.Extensions
             CreateMap<tbCargos, CargosViewModel>().ReverseMap();
             CreateMap<tbDepartamentos, DepartamentosViewModel>().ReverseMap();
             CreateMap<tbEmpleados, EmpleadosViewModel>().ReverseMap();
-            CreateMap<tbEntradas, EntradasViewModel>().ReverseMap();
+            CreateMap<tbEntradas, EntradaInsertarViewModel>().ReverseMap();
             CreateMap<tbEstadosCiviles, EstadosCivilesViewModel>().ReverseMap();
             CreateMap<tbLotes, LotesViewModel>().ReverseMap();
             CreateMap<tbMunicipios, MunicipiosViewModel>().ReverseMap();
-            CreateMap<tbSalidas, SalidasViewModel>().ReverseMap();
+            CreateMap<tbSalidas, SalidaInsertarViewModel>().ReverseMap();
             CreateMap<tbSucursales, SucursalesViewModel>().ReverseMap();
             CreateMap<tbUsuarios, UsuariosViewModel>().ReverseMap();
             CreateMap<tbVehiculos, VehiculosViewModel>().ReverseMap();
-
         }
     }
 }

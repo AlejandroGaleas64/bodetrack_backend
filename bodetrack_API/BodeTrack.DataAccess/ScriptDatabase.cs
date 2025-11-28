@@ -5,6 +5,8 @@
         #region Articulos
 
         public const string Articulos_Listar = "[Gral].[SP_Articulos_Listar]";
+        public const string Articulos_ListarDetalle = "[Gral].[SP_Articulos_ListarDetalle]";
+
 
         #endregion Articulos
 
@@ -53,7 +55,7 @@
         #region Salidas
 
         public const string Salida_Insertar = "[Inve].[SP_Salida_Insertar]";
-        public const string Salida_Seleccionar = "[Inve].[SP_Salida_Seleccionar]";
+        public const string Salida_Seleccionar = "[Inve].[SP_Salida_ObtenerCompleta]";
         public const string Salida_Recibir = "[Inve].[SP_Salida_Recibir]";
         public const string Salidas_Listar = "[Inve].[SP_Salidas_Listar]";
 

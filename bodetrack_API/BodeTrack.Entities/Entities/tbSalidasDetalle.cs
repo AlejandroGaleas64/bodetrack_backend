@@ -30,6 +30,4 @@ public partial class tbSalidasDetalle
     public int? Sade_Modificacion { get; set; }
 
     public DateTime? Sade_FechaModificacion { get; set; }
-
-
 }
