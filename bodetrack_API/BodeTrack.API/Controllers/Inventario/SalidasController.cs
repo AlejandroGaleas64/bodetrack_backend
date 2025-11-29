@@ -50,5 +50,49 @@ namespace BodeTrack.API.Controllers.Inventario
             var result = _inventarioServices.ListarSalidas();
             return StatusCode(result.Code, result);
         }
+
+        [HttpPut("ActualizarGuia/{saliId}")]
+        public async Task<IActionResult> SubirGuiaRemision(int saliId, IFormFile archivo)
+        {
+            if (archivo == null || archivo.Length == 0)
+            {
+                return BadRequest(new { success = false, message = "Archivo no proporcionado." });
+            }
+
+            // Validar extensión
+            var extension = Path.GetExtension(archivo.FileName).ToLowerInvariant();
+            if (extension != ".pdf")
+            {
+                return BadRequest(new { success = false, message = "Solo se permiten archivos PDF." });
+            }
+
+            // Leer el archivo como byte[]
+            using var memoryStream = new MemoryStream();
+            await archivo.CopyToAsync(memoryStream);
+            byte[] pdfBytes = memoryStream.ToArray();
+
+            var result = _inventarioServices.ActualizarGuiaRemision(saliId, pdfBytes);
+            return StatusCode(result.Code, result);
+        }
+
+        [HttpGet("DescargarGuia/{saliId}")]
+        public IActionResult DescargarGuiaRemision(int saliId)
+        {
+            var result = _inventarioServices.ObtenerGuiaRemision(saliId);
+
+            if (!result.Success)
+            {
+                return StatusCode(result.Code, result);
+            }
+
+            var pdfBytes = (byte[])result.Data;
+
+            if (pdfBytes == null || pdfBytes.Length == 0)
+            {
+                return NotFound(new { message = "No hay guía de remisión para esta salida." });
+            }
+
+            return File(pdfBytes, "application/pdf", $"guia_salida_{saliId}.pdf");
+        }
     }
 }

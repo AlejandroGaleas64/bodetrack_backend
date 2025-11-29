@@ -366,6 +366,92 @@ namespace BodeTrack.BusinnesLogic.Services
             }
         }
 
+        public ServiceResult ActualizarGuiaRemision(int sali_Id, byte[] pdfBytes)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                if (sali_Id <= 0)
+                {
+                    return result.BadRequest("El ID de salida debe ser mayor a 0.");
+                }
+                if (pdfBytes == null || pdfBytes.Length == 0)
+                {
+                    return result.BadRequest("El archivo PDF es requerido.");
+                }
+                // Validar tamaño máximo (10 MB)
+                const int maxSize = 10 * 1024 * 1024; // 10 MB
+                if (pdfBytes.Length > maxSize)
+                {
+                    return result.BadRequest($"El archivo excede el tamaño máximo permitido de 10 MB. Tamaño actual: {pdfBytes.Length / 1024 / 1024} MB");
+                }
+                // Validar que sea un PDF (magic bytes)
+                if (!IsPdf(pdfBytes))
+                {
+                    return result.BadRequest("El archivo debe ser un PDF válido.");
+                }
+                var response = _salidaRepository.ActualizarGuiaRemision(sali_Id, pdfBytes);
+                if (response == null || response.code_Status == 0)
+                {
+                    return result.Error("No se pudo actualizar la guía de remisión.");
+                }
+                return result.Ok("Guía de remisión actualizada exitosamente.");
+            }
+            catch (Microsoft.Data.SqlClient.SqlException ex)
+            {
+                return result.Error(
+                    message: "Error al consultar la base de datos.",
+                    data: new { Error = ex.Message }
+                );
+            }
+            catch (Exception ex)
+            {
+                return result.Error(
+                    message: "Ocurrió un error inesperado al actualizar la guía.",
+                    data: new { Error = ex.Message }
+                );
+            }
+        }
+
+        public ServiceResult ObtenerGuiaRemision(int sali_Id)
+        {
+            var result = new ServiceResult();
+            try
+            {
+                if (sali_Id <= 0)
+                {
+                    return result.BadRequest("El ID de salida debe ser mayor a 0.");
+                }
+                var pdfBytes = _salidaRepository.ObtenerGuiaRemision(sali_Id);
+                if (pdfBytes == null || pdfBytes.Length == 0)
+                {
+                    return result.NotFound("No se encontró la guía de remisión para esta salida.");
+                }
+                return result.Ok(pdfBytes);
+            }
+            catch (Microsoft.Data.SqlClient.SqlException ex)
+            {
+                return result.Error(
+                    message: "Error al consultar la base de datos.",
+                    data: new { Error = ex.Message }
+                );
+            }
+            catch (Exception ex)
+            {
+                return result.Error(
+                    message: "Ocurrió un error inesperado al obtener la guía.",
+                    data: new { Error = ex.Message }
+                );
+            }
+        }
+
+        private bool IsPdf(byte[] bytes)
+        {
+            // PDF magic bytes: %PDF
+            if (bytes.Length < 4) return false;
+            return bytes[0] == 0x25 && bytes[1] == 0x50 && bytes[2] == 0x44 && bytes[3] == 0x46;
+        }
+
         #endregion Salidas
     }
 }

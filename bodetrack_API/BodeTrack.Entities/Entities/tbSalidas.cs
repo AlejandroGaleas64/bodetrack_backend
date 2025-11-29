@@ -28,7 +28,7 @@ public partial class tbSalidas
 
     public DateTime? Sali_FechaRecepcion { get; set; }
 
-    public string Sali_GuiaRemision { get; set; }
+    public byte[] Sali_GuiaRemision { get; set; } // VARBINARY(MAX) - PDF en base de datos
 
     public bool Sali_Estado { get; set; }
 
