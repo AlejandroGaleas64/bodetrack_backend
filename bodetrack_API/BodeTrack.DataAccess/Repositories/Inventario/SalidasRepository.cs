@@ -69,11 +69,13 @@ namespace BodeTrack.DataAccess.Repositories.Inventario
             return result;
         }
 
-        public RequestStatus RecibirSalida(int sali_Id, int usuarioRecibeId)
+        public RequestStatus RecibirSalida(int sali_Id, int UsuarioRecibeId)
         {
             var parameter = new DynamicParameters();
             parameter.Add("@Sali_Id", sali_Id);
-            parameter.Add("@UsuarioRecibeId", usuarioRecibeId);
+            parameter.Add("@UsuarioRecibeId", UsuarioRecibeId);
+
+            parameter.Add("@Sali_FechaModificacion", DateTime.Now);
 
             using var db = new SqlConnection(BodeTrack_Context.ConnectionString);
             var result = db.QueryFirstOrDefault<RequestStatus>(
