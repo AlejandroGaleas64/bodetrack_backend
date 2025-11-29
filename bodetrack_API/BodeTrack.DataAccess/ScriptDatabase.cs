@@ -56,6 +56,7 @@
         public const string Salida_Insertar = "[Inve].[SP_Salida_Insertar]";
         public const string Salida_Seleccionar = "[Inve].[SP_Salida_ObtenerCompleta]";
         public const string Salida_Recibir = "[Inve].[SP_Salida_Recibir]";
+        public const string Salida_ActualizarGuia = "[Inve].[SP_Salida_ActualizarGuia]";
         public const string Salidas_Listar = "[Inve].[SP_Salidas_Listar]";
 
         #endregion Salidas

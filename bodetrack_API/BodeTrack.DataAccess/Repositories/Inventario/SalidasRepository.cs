@@ -86,5 +86,50 @@ namespace BodeTrack.DataAccess.Repositories.Inventario
 
             return result;
         }
+
+        public RequestStatus ActualizarGuiaRemision(int sali_Id, byte[] pdfBytes)
+        {
+            using var connection = new SqlConnection(BodeTrack_Context.ConnectionString);
+            connection.Open();
+
+            using var command = new SqlCommand(ScriptDatabase.Salida_ActualizarGuia, connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@Sali_Id", sali_Id);
+
+            var paramGuia = new SqlParameter("@GuiaPDF", SqlDbType.VarBinary, -1)
+            {
+                Value = pdfBytes ?? (object)DBNull.Value
+            };
+            command.Parameters.Add(paramGuia);
+
+            using var reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                return new RequestStatus
+                {
+                    code_Status = reader.GetInt32(reader.GetOrdinal("Code_Status")),
+                    message_Status = reader.GetString(reader.GetOrdinal("Message_Status"))
+                };
+            }
+
+            return new RequestStatus
+            {
+                code_Status = 0,
+                message_Status = "Error desconocido al actualizar guía."
+            };
+        }
+
+        public byte[] ObtenerGuiaRemision(int sali_Id)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@Sali_Id", sali_Id);
+            using var db = new SqlConnection(BodeTrack_Context.ConnectionString);
+            var salida = db.QueryFirstOrDefault<tbSalidas>(
+                "SELECT Sali_GuiaRemision FROM [Inve].[tbSalidas] WHERE Sali_Id = @Sali_Id",
+                parameter
+            );
+            return salida?.Sali_GuiaRemision;
+        }
     }
 }

@@ -36,7 +36,13 @@ public partial class tbUsuarios
     public string Empl_Sexo { get; set; } = null!;
 
     [NotMapped]
-    public string Empl_Cargo { get; set; } = null!;
+    public string Empl_Cargo { get; set; } = null;
+
+    [NotMapped]
+    public int Sucs_Id { get; set; }
+
+    [NotMapped]
+    public string Sucs_Descripcion { get; set; } = null!;
 
     [NotMapped]
     public string Empl_EstadoCivil { get; set; } = null!;
