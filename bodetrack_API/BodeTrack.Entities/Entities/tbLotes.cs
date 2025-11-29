@@ -37,11 +37,5 @@ public partial class tbLotes
 
     public DateTime? Lote_FechaModificacion { get; set; }
 
-    public virtual tbArticulos Arti { get; set; }
 
-    public virtual tbUsuarios Lote_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Lote_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbSalidasDetalle> tbSalidasDetalle { get; set; } = new List<tbSalidasDetalle>();
 }

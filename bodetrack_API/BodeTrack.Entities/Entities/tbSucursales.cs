@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -13,6 +14,15 @@ public partial class tbSucursales
 
     public string Muni_Codigo { get; set; }
 
+    [NotMapped]
+    public string Muni_Descripcion { get; set; }
+
+    [NotMapped]
+    public string Dept_Codigo { get; set; }
+
+    [NotMapped]
+    public string Dept_Descripcion { get; set; }
+
     public bool Sucs_Estado { get; set; }
 
     public int Sucs_Creacion { get; set; }
@@ -23,11 +33,5 @@ public partial class tbSucursales
 
     public DateTime? Sucs_FechaModificacion { get; set; }
 
-    public virtual tbMunicipios Muni_CodigoNavigation { get; set; }
-
-    public virtual tbUsuarios Sucs_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Sucs_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbSalidas> tbSalidas { get; set; } = new List<tbSalidas>();
+    
 }

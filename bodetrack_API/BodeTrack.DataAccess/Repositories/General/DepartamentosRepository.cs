@@ -1,10 +1,10 @@
-﻿using Dapper;
-using BodeTrack.Entities.Entities;
+﻿using BodeTrack.Entities.Entities;
+using Dapper;
 using Microsoft.Data.SqlClient;
 
-namespace BodeTrack.DataAccess.General
+namespace BodeTrack.DataAccess.Repositories.General
 {
-    public class DepartamentoRepository : IRepository<tbDepartamentos>
+    public class DepartamentosRepository : IRepository<tbDepartamentos>
     {
         public RequestStatus Delete(int? id)
         {
@@ -23,11 +23,8 @@ namespace BodeTrack.DataAccess.General
 
         public IEnumerable<tbDepartamentos> List()
         {
-            var parameter = new DynamicParameters();
             using var db = new SqlConnection(BodeTrack_Context.ConnectionString);
-            var result = db.Query<tbDepartamentos>(ScriptDatabase.Departamentos_Listar, parameter, commandType: System.Data.CommandType.StoredProcedure).ToList();
-
-            return result;
+            return db.Query<tbDepartamentos>(ScriptDatabase.Departamentos_Listar, commandType: System.Data.CommandType.StoredProcedure);
         }
 
         public RequestStatus Update(tbDepartamentos item)

@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -25,9 +26,9 @@ public partial class tbEntradas
 
     public DateTime? Entr_FechaModificacion { get; set; }
 
-    public virtual tbUsuarios Entr_CreacionNavigation { get; set; }
+    [NotMapped]
+    public string Usua_Creacion { get; set; }
 
-    public virtual tbUsuarios Entr_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEntradasDetalle> tbEntradasDetalle { get; set; } = new List<tbEntradasDetalle>();
+    [NotMapped]
+    public string Usua_Modificacion { get; set; }
 }

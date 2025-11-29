@@ -30,14 +30,4 @@ public partial class tbSalidasDetalle
     public int? Sade_Modificacion { get; set; }
 
     public DateTime? Sade_FechaModificacion { get; set; }
-
-    public virtual tbArticulos Arti { get; set; }
-
-    public virtual tbLotes Lote { get; set; }
-
-    public virtual tbUsuarios Sade_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Sade_ModificacionNavigation { get; set; }
-
-    public virtual tbSalidas Sali { get; set; }
 }

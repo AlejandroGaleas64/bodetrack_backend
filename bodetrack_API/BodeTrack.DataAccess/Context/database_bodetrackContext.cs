@@ -73,14 +73,6 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Arti_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Arti_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Arti_CreacionNavigation).WithMany(p => p.tbArticulosArti_CreacionNavigation)
-                .HasForeignKey(d => d.Arti_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbArticulos_Arti_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Arti_ModificacionNavigation).WithMany(p => p.tbArticulosArti_ModificacionNavigation)
-                .HasForeignKey(d => d.Arti_Modificacion)
-                .HasConstraintName("FK_Gral_tbArticulos_Arti_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbCargos>(entity =>
@@ -97,14 +89,7 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Carg_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Carg_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Carg_CreacionNavigation).WithMany(p => p.tbCargosCarg_CreacionNavigation)
-                .HasForeignKey(d => d.Carg_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbCargos_Carg_Creacion_Acce_tbUsuarios_Usua_Id");
 
-            entity.HasOne(d => d.Carg_ModificacionNavigation).WithMany(p => p.tbCargosCarg_ModificacionNavigation)
-                .HasForeignKey(d => d.Carg_Modificacion)
-                .HasConstraintName("FK_Gral_tbCargos_Carg_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbDepartamentos>(entity =>
@@ -124,14 +109,6 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Dept_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Dept_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Dept_CreacionNavigation).WithMany(p => p.tbDepartamentosDept_CreacionNavigation)
-                .HasForeignKey(d => d.Dept_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbDepartamentos_Dept_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Dept_ModificacionNavigation).WithMany(p => p.tbDepartamentosDept_ModificacionNavigation)
-                .HasForeignKey(d => d.Dept_Modificacion)
-                .HasConstraintName("FK_Gral_tbDepartamentos_Dept_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbEmpleados>(entity =>
@@ -175,29 +152,8 @@ public partial class database_bodetrackContext : DbContext
                 .HasMaxLength(4)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Carg).WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.Carg_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbEmpleados_tbCargos_Carg_Id");
-
-            entity.HasOne(d => d.Empl_CreacionNavigation).WithMany(p => p.tbEmpleadosEmpl_CreacionNavigation)
-                .HasForeignKey(d => d.Empl_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbEmpleados_Empl_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Empl_ModificacionNavigation).WithMany(p => p.tbEmpleadosEmpl_ModificacionNavigation)
-                .HasForeignKey(d => d.Empl_Modificacion)
-                .HasConstraintName("FK_Gral_tbEmpleados_Empl_Modificacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.EsCi).WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.EsCi_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbEmpleados_tbEstadosCiviles_EsCi_Id");
-
-            entity.HasOne(d => d.Muni_CodigoNavigation).WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.Muni_Codigo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbEmpleados_Muni_Codigo_tbMunicipios_Muni_Codigo");
+            
+    
         });
 
         modelBuilder.Entity<tbEntradas>(entity =>
@@ -217,14 +173,6 @@ public partial class database_bodetrackContext : DbContext
                 .HasMaxLength(250)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Entr_CreacionNavigation).WithMany(p => p.tbEntradasEntr_CreacionNavigation)
-                .HasForeignKey(d => d.Entr_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbEntradas_Entr_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Entr_ModificacionNavigation).WithMany(p => p.tbEntradasEntr_ModificacionNavigation)
-                .HasForeignKey(d => d.Entr_Modificacion)
-                .HasConstraintName("FK_Inve_tbEntradas_Entr_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbEntradasDetalle>(entity =>
@@ -242,24 +190,9 @@ public partial class database_bodetrackContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Arti).WithMany(p => p.tbEntradasDetalle)
-                .HasForeignKey(d => d.Arti_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbEntradasDetalle_Gral_tbArticulos_Arti_Id");
+            
 
-            entity.HasOne(d => d.Ende_CreacionNavigation).WithMany(p => p.tbEntradasDetalleEnde_CreacionNavigation)
-                .HasForeignKey(d => d.Ende_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbEntradasDetalle_Ende_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Ende_ModificacionNavigation).WithMany(p => p.tbEntradasDetalleEnde_ModificacionNavigation)
-                .HasForeignKey(d => d.Ende_Modificacion)
-                .HasConstraintName("FK_Inve_tbEntradasDetalle_Ende_Modificacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Entr).WithMany(p => p.tbEntradasDetalle)
-                .HasForeignKey(d => d.Entr_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbEntradasDetalle_tbEntradas_Entr_Id");
+            
         });
 
         modelBuilder.Entity<tbEstadosCiviles>(entity =>
@@ -276,14 +209,6 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.EsCi_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.EsCi_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.EsCi_CreacionNavigation).WithMany(p => p.tbEstadosCivilesEsCi_CreacionNavigation)
-                .HasForeignKey(d => d.EsCi_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbEstadosCiviles_EsCi_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.EsCi_ModificacionNavigation).WithMany(p => p.tbEstadosCivilesEsCi_ModificacionNavigation)
-                .HasForeignKey(d => d.EsCi_Modificacion)
-                .HasConstraintName("FK_Gral_tbEstadosCiviles_EsCi_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbLotes>(entity =>
@@ -307,19 +232,8 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Lote_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Lote_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Arti).WithMany(p => p.tbLotes)
-                .HasForeignKey(d => d.Arti_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbLotes_Gral_tbArticulos_Arti_Id");
+            
 
-            entity.HasOne(d => d.Lote_CreacionNavigation).WithMany(p => p.tbLotesLote_CreacionNavigation)
-                .HasForeignKey(d => d.Lote_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbLotes_Lote_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Lote_ModificacionNavigation).WithMany(p => p.tbLotesLote_ModificacionNavigation)
-                .HasForeignKey(d => d.Lote_Modificacion)
-                .HasConstraintName("FK_Inve_tbLotes_Lote_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbMunicipios>(entity =>
@@ -343,19 +257,8 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Muni_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Muni_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Dept_CodigoNavigation).WithMany(p => p.tbMunicipios)
-                .HasForeignKey(d => d.Dept_Codigo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbMunicipios_tbDepartamentos_Dept_Codigo");
+            
 
-            entity.HasOne(d => d.Muni_CreacionNavigation).WithMany(p => p.tbMunicipiosMuni_CreacionNavigation)
-                .HasForeignKey(d => d.Muni_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbMunicipios_Muni_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Muni_ModificacionNavigation).WithMany(p => p.tbMunicipiosMuni_ModificacionNavigation)
-                .HasForeignKey(d => d.Muni_Modificacion)
-                .HasConstraintName("FK_Gral_tbMunicipios_Muni_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         modelBuilder.Entity<tbSalidas>(entity =>
@@ -378,36 +281,8 @@ public partial class database_bodetrackContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Sali_CreacionNavigation).WithMany(p => p.tbSalidasSali_CreacionNavigation)
-                .HasForeignKey(d => d.Sali_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidas_Sali_Creacion_Acce_tbUsuarios_Usua_Id");
+            
 
-            entity.HasOne(d => d.Sali_ModificacionNavigation).WithMany(p => p.tbSalidasSali_ModificacionNavigation)
-                .HasForeignKey(d => d.Sali_Modificacion)
-                .HasConstraintName("FK_Inve_tbSalidas_Sali_Modificacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sali_TransportistaNavigation).WithMany(p => p.tbSalidas)
-                .HasForeignKey(d => d.Sali_Transportista)
-                .HasConstraintName("FK_Inve_tbSalidas_Sali_Transportista_Gral_tbEmpleados_Empl_Id");
-
-            entity.HasOne(d => d.Sali_UsuarioEnviaNavigation).WithMany(p => p.tbSalidasSali_UsuarioEnviaNavigation)
-                .HasForeignKey(d => d.Sali_UsuarioEnvia)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidas_Sali_UsuarioEnvia_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sali_UsuarioRecibeNavigation).WithMany(p => p.tbSalidasSali_UsuarioRecibeNavigation)
-                .HasForeignKey(d => d.Sali_UsuarioRecibe)
-                .HasConstraintName("FK_Inve_tbSalidas_Sali_UsuarioRecibe_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sucs).WithMany(p => p.tbSalidas)
-                .HasForeignKey(d => d.Sucs_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidas_Gral_tbSucursales_Sucs_Id");
-
-            entity.HasOne(d => d.Vehi).WithMany(p => p.tbSalidas)
-                .HasForeignKey(d => d.Vehi_Id)
-                .HasConstraintName("FK_Inve_tbSalidas_Gral_tbVehiculos_Vehi_Id");
         });
 
         modelBuilder.Entity<tbSalidasDetalle>(entity =>
@@ -421,29 +296,8 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Sade_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Sade_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Arti).WithMany(p => p.tbSalidasDetalle)
-                .HasForeignKey(d => d.Arti_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidasDetalle_Gral_tbArticulos_Arti_Id");
+            
 
-            entity.HasOne(d => d.Lote).WithMany(p => p.tbSalidasDetalle)
-                .HasForeignKey(d => d.Lote_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidasDetalle_tbLotes_Lote_Id");
-
-            entity.HasOne(d => d.Sade_CreacionNavigation).WithMany(p => p.tbSalidasDetalleSade_CreacionNavigation)
-                .HasForeignKey(d => d.Sade_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidasDetalle_Sade_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sade_ModificacionNavigation).WithMany(p => p.tbSalidasDetalleSade_ModificacionNavigation)
-                .HasForeignKey(d => d.Sade_Modificacion)
-                .HasConstraintName("FK_Inve_tbSalidasDetalle_Sade_Modificacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sali).WithMany(p => p.tbSalidasDetalle)
-                .HasForeignKey(d => d.Sali_Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Inve_tbSalidasDetalle_tbSalidas_Sali_Id");
         });
 
         modelBuilder.Entity<tbSucursales>(entity =>
@@ -464,19 +318,7 @@ public partial class database_bodetrackContext : DbContext
             entity.Property(e => e.Sucs_FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.Sucs_FechaModificacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Muni_CodigoNavigation).WithMany(p => p.tbSucursales)
-                .HasForeignKey(d => d.Muni_Codigo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbSucursales_tbMunicipios_Muni_Codigo");
-
-            entity.HasOne(d => d.Sucs_CreacionNavigation).WithMany(p => p.tbSucursalesSucs_CreacionNavigation)
-                .HasForeignKey(d => d.Sucs_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbSucursales_Sucs_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Sucs_ModificacionNavigation).WithMany(p => p.tbSucursalesSucs_ModificacionNavigation)
-                .HasForeignKey(d => d.Sucs_Modificacion)
-                .HasConstraintName("FK_Gral_tbSucursales_Sucs_Modificacion_Acce_tbUsuarios_Usua_Id");
+            
         });
 
         modelBuilder.Entity<tbUsuarios>(entity =>
@@ -527,15 +369,6 @@ public partial class database_bodetrackContext : DbContext
                 .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
-
-            entity.HasOne(d => d.Vehi_CreacionNavigation).WithMany(p => p.tbVehiculosVehi_CreacionNavigation)
-                .HasForeignKey(d => d.Vehi_Creacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Gral_tbVehiculos_Vehi_Creacion_Acce_tbUsuarios_Usua_Id");
-
-            entity.HasOne(d => d.Vehi_ModificacionNavigation).WithMany(p => p.tbVehiculosVehi_ModificacionNavigation)
-                .HasForeignKey(d => d.Vehi_Modificacion)
-                .HasConstraintName("FK_Gral_tbVehiculos_Vehi_Modificacion_Acce_tbUsuarios_Usua_Id");
         });
 
         OnModelCreatingPartial(modelBuilder);

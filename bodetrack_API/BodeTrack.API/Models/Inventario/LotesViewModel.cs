@@ -1,0 +1,35 @@
+﻿namespace BodeTrack.API.Models.Inventario
+{
+    public class LotesViewModel
+    {
+        public int Lote_Id { get; set; }
+
+        public int Arti_Id { get; set; }
+
+        public string Lote_Codigo { get; set; }
+
+        public string Lote_Atributo1 { get; set; }
+
+        public string Lote_Atributo2 { get; set; }
+
+        public DateOnly Lote_FechaAdmision { get; set; }
+
+        public DateOnly Lote_FechaFabricacion { get; set; }
+
+        public DateOnly Lote_FechaVencimiento { get; set; }
+
+        public decimal Lote_CostoUnitario { get; set; }
+
+        public int Lote_CantidadDisponible { get; set; }
+
+        public bool Lote_Estado { get; set; }
+
+        public int Lote_Creacion { get; set; }
+
+        public DateTime Lote_FechaCreacion { get; set; }
+
+        public int? Lote_Modificacion { get; set; }
+
+        public DateTime? Lote_FechaModificacion { get; set; }
+    }
+}

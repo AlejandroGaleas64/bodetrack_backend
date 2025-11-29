@@ -1,11 +1,6 @@
 ﻿using BodeTrack.DataAccess.Context;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BodeTrack.DataAccess
 {
@@ -17,6 +12,7 @@ namespace BodeTrack.DataAccess
         {
             ChangeTracker.LazyLoadingEnabled = false;
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -25,6 +21,7 @@ namespace BodeTrack.DataAccess
             }
             base.OnConfiguring(optionsBuilder);
         }
+
         public static void BuildConnectionString(string connection)
         {
             var connectionStringBuilder = new SqlConnectionStringBuilder { ConnectionString = connection };

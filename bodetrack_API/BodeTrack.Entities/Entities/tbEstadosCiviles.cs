@@ -20,10 +20,4 @@ public partial class tbEstadosCiviles
     public int? EsCi_Modificacion { get; set; }
 
     public DateTime? EsCi_FechaModificacion { get; set; }
-
-    public virtual tbUsuarios EsCi_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios EsCi_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEmpleados> tbEmpleados { get; set; } = new List<tbEmpleados>();
 }

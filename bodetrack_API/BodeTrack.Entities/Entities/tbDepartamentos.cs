@@ -20,10 +20,4 @@ public partial class tbDepartamentos
     public int? Dept_Modificacion { get; set; }
 
     public DateTime? Dept_FechaModificacion { get; set; }
-
-    public virtual tbUsuarios Dept_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Dept_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbMunicipios> tbMunicipios { get; set; } = new List<tbMunicipios>();
 }

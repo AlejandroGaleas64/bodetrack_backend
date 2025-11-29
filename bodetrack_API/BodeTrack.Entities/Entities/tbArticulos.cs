@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -25,13 +26,7 @@ public partial class tbArticulos
 
     public DateTime? Arti_FechaModificacion { get; set; }
 
-    public virtual tbUsuarios Arti_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Arti_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEntradasDetalle> tbEntradasDetalle { get; set; } = new List<tbEntradasDetalle>();
-
-    public virtual ICollection<tbLotes> tbLotes { get; set; } = new List<tbLotes>();
-
-    public virtual ICollection<tbSalidasDetalle> tbSalidasDetalle { get; set; } = new List<tbSalidasDetalle>();
+    // Campo adicional del SP_Articulos_ListarDetalle
+    [NotMapped]
+    public string Lotes { get; set; } // JSON string - se deserializa en frontend
 }

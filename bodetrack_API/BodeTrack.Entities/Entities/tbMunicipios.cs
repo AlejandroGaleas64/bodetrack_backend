@@ -23,13 +23,4 @@ public partial class tbMunicipios
 
     public DateTime? Muni_FechaModificacion { get; set; }
 
-    public virtual tbDepartamentos Dept_CodigoNavigation { get; set; }
-
-    public virtual tbUsuarios Muni_CreacionNavigation { get; set; }
-
-    public virtual tbUsuarios Muni_ModificacionNavigation { get; set; }
-
-    public virtual ICollection<tbEmpleados> tbEmpleados { get; set; } = new List<tbEmpleados>();
-
-    public virtual ICollection<tbSucursales> tbSucursales { get; set; } = new List<tbSucursales>();
 }

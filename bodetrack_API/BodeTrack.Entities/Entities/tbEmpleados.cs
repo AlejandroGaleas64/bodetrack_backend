@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BodeTrack.Entities.Entities;
 
@@ -14,7 +15,10 @@ public partial class tbEmpleados
     public string Empl_Nombres { get; set; }
 
     public string Empl_Apellidos { get; set; }
-
+    [NotMapped]
+    public string NombreCompleto { get; set; }
+    [NotMapped]
+    public string SucursalDestino { get; set; }
     public string Empl_Sexo { get; set; }
 
     public DateOnly Empl_FechaNacimiento { get; set; }
@@ -29,6 +33,8 @@ public partial class tbEmpleados
 
     public int Carg_Id { get; set; }
 
+    public int Sucs_Id { get; set; }
+
     public bool Empl_EsJefeBodega { get; set; }
 
     public bool Empl_Estado { get; set; }
@@ -41,15 +47,21 @@ public partial class tbEmpleados
 
     public DateTime? Empl_FechaModificacion { get; set; }
 
-    public virtual tbCargos Carg { get; set; }
+    [NotMapped]
+    public int Secuencia { get; set; }
 
-    public virtual tbUsuarios Empl_CreacionNavigation { get; set; }
+    [NotMapped]
+    public string Carg_Descripcion { get; set; }
 
-    public virtual tbUsuarios Empl_ModificacionNavigation { get; set; }
+    [NotMapped]
+    public string Sucs_Descripcion { get; set; }
 
-    public virtual tbEstadosCiviles EsCi { get; set; }
+    [NotMapped]
+    public string EsCi_Descripcion { get; set; }
 
-    public virtual tbMunicipios Muni_CodigoNavigation { get; set; }
+    [NotMapped]
+    public string Muni_Descripcion { get; set; }
 
-    public virtual ICollection<tbSalidas> tbSalidas { get; set; } = new List<tbSalidas>();
+    [NotMapped]
+    public string Dept_Descripcion { get; set; }
 }
